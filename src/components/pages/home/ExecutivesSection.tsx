@@ -8,10 +8,12 @@ import HeadingH1 from '@/components/shared/Heading';
 
 import CustomPagination from '@/components/shared/Pagination';
 import { executivesData } from '@/utils/static-resources/executives.static';
+import { useLeadersQuery } from '@/queries/leaders.query';
 
 const Executives = () => {
   const [isShowMore, setIsShowMore] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const { data: leaders } = useLeadersQuery();
 
   const initialCardCount = useMemo(() => {
     const screenWidth = window.innerWidth;
@@ -26,12 +28,16 @@ const Executives = () => {
 
   const currentExecutives = useMemo(() => {
     const startIndex = (currentPage - 1) * cardCount;
-    return executivesData.slice(startIndex, startIndex + cardCount);
-  }, [currentPage, cardCount]);
+    return leaders?.leaders.slice(startIndex, startIndex + cardCount);
+  }, [currentPage, cardCount, leaders]);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
+
+  if (!currentExecutives?.length) {
+    return null;
+  }
 
   return (
     <div
@@ -40,7 +46,7 @@ const Executives = () => {
     >
       <HeadingH1>Rahbariyat</HeadingH1>
       <CardWrapper>
-        {currentExecutives.map((data, index) => (
+        {currentExecutives?.map((data, index) => (
           <ExecutivesCard key={index} data={data} />
         ))}
       </CardWrapper>

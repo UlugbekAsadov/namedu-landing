@@ -3,4 +3,7 @@ export const QUERY_KEYS = {
     ALL: ['news'] as const,
     DETAILS: (newsId: string) => ['news', newsId] as const,
   },
+  LEADERS: {
+    ALL: ['leaders'] as const,
+  },
 };

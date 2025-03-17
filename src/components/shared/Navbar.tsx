@@ -37,15 +37,41 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Menu */}
-        <ul className="hidden xl:flex items-center gap-8 text-white text-lg">
-          {NAVLINKS_STATIC.map(({ title, to }) => (
-            <li
-              key={title}
-              className="cursor-pointer hover:text-[#ffffff]/50 duration-300 font-extralight"
-            >
-              <button onClick={() => handleNavigation(to)}>{title}</button>
-            </li>
-          ))}
+        <ul className="hidden xl:flex items-center gap-8 text-white text-lg h-full">
+          {NAVLINKS_STATIC.map((link) => {
+            return (
+              <li
+                key={link.title}
+                className=" h-full flex items-center justify-center  group relative"
+              >
+                <button
+                  className="hover:text-[#ffffff]/50 duration-300  cursor-pointer font-extralight"
+                  onClick={() => handleNavigation(link.to)}
+                >
+                  {link.title}
+                </button>
+                {link.subItems?.length ? (
+                  <ul className="group-hover:block hidden absolute w-full py-2 space-y-2 top-[50px] left-0">
+                    {link.subItems.map((subItem) => {
+                      return (
+                        <li
+                          key={subItem.title}
+                          className="cursor-pointer hover:text-[#ffffff]/50 duration-300 font-extralight group relative"
+                        >
+                          <button
+                            className="hover:text-[#ffffff]/50 duration-300  cursor-pointer text-start font-extralight text-nowrap"
+                            onClick={() => handleNavigation(subItem.to)}
+                          >
+                            {subItem.title}
+                          </button>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                ) : null}
+              </li>
+            );
+          })}
         </ul>
 
         {/* Call Button */}
