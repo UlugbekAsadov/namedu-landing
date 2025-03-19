@@ -11,12 +11,12 @@ export const SOCIAL_MEDIA = [
   },
   {
     id: 2,
-    link: 'https://t.me/eduuz',
+    link: 'https://t.me/professional_talim_namangan',
     icon: Telegram,
   },
   {
     id: 3,
-    link: 'https://www.facebook.com/eduuzofficial',
+    link: 'https://www.facebook.com/groups/proftalimnamangan/?ref=share&mibextid=NSMWBT',
     icon: Facebook,
   },
   {
