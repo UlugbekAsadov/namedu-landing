@@ -1,3 +1,5 @@
+import { ROUTE_PATHS } from '../constants/route.paths';
+
 interface ILink {
   title: string;
   to: string;
@@ -24,6 +26,9 @@ export const NAVLINKS_STATIC: ILink[] = [
       { title: 'Investitsion faoliyat', to: '' },
     ],
   },
-  { title: 'Yangiliklar', to: 'news' },
-  { title: 'Ta’lim Muassasalari', to: 'eduInstitutes' },
+  { title: 'Yangiliklar', to: `/${ROUTE_PATHS.NEWS}#news` },
+  {
+    title: 'Ta’lim Muassasalari',
+    to: `/${ROUTE_PATHS.ORGANIZATIONS}#eduInstitutes`,
+  },
 ];

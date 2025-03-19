@@ -17,6 +17,7 @@ const Header = () => {
   const id = searchParams.get('id');
 
   const { data: news } = useNewsByIdQuery(id || '');
+
   const pathName = location.pathname.startsWith(`/${ROUTE_PATHS.NEWS_DETAILS}`);
 
   const getBackgroundImage = () => {
@@ -50,7 +51,7 @@ const Header = () => {
 
       {/* Hero Content */}
       <div className="flex flex-col gap-20 lg:gap-32 mt-32 lg:mt-64 items-center md:items-start text-center md:text-left">
-        {location.pathname === '/' && (
+        {!pathName && (
           <>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold max-w-full md:max-w-[700px] lg:max-w-[1000px]">
               NAMANGAN VILOYATI OLIY TA'LIM, FAN VA INNOVATSIYALAR BOSHQARMASI

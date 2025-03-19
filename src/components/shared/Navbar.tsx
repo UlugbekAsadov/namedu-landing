@@ -17,14 +17,16 @@ const Navbar = () => {
     preventScrolling(!isOpen);
   };
   const handleNavigation = (to: string) => {
-    if (window.location.pathname !== '/') {
+    const isInternalLink = to.startsWith('/');
+    const targetId = to.includes('#') ? to.split('#')[1] : to;
+
+    if (isInternalLink) {
+      navigate(to);
+    } else if (window.location.pathname !== '/') {
       navigate('/');
-      setTimeout(() => {
-        scrollTo({ targetId: to });
-      }, 300);
-    } else {
-      scrollTo({ targetId: to });
     }
+
+    setTimeout(() => scrollTo({ targetId }), 300);
   };
 
   return (

@@ -10,6 +10,8 @@ import MainLayout from '@/layouts/main-layout';
 const HomePage = lazy(() => import('@pages/Home/Home'));
 const NewsPage = lazy(() => import('@pages/News/News'));
 import NotFound from '@/pages/404/NotFound';
+const Organizations = lazy(() => import('@/pages/organizations/Organizations'));
+const News = lazy(() => import('@/pages/News/AllNews'));
 
 const routes = createBrowserRouter([
   {
@@ -32,6 +34,16 @@ const routes = createBrowserRouter([
           </ErrorBoundry>
         ),
       },
+      {
+        path: `${ROUTE_PATHS.NEWS}`,
+        element: (
+          <ErrorBoundry>
+            <Suspense>
+              <News />
+            </Suspense>
+          </ErrorBoundry>
+        ),
+      },
       // News details page
       {
         path: `${ROUTE_PATHS.NEWS_DETAILS}/:id`,
@@ -39,6 +51,16 @@ const routes = createBrowserRouter([
           <ErrorBoundry>
             <Suspense>
               <NewsPage />
+            </Suspense>
+          </ErrorBoundry>
+        ),
+      },
+      {
+        path: `${ROUTE_PATHS.ORGANIZATIONS}`,
+        element: (
+          <ErrorBoundry>
+            <Suspense>
+              <Organizations />
             </Suspense>
           </ErrorBoundry>
         ),
