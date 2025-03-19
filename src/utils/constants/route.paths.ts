@@ -3,5 +3,9 @@ export const ROUTE_PATHS = {
   HOME: '',
   NEWS: 'news',
   NEWS_DETAILS: 'yangilik',
-  ORGANIZATIONS: 'talim-muassasalari',
+  ORGANIZATIONS: 'organizations',
+  ACTIVITY: 'activity',
+  CORRUPTION: 'activity#corruption',
+  INTERNATIONAL_COOPERATION: 'activity#international-cooperation',
+  INVESTMENT: 'activity#investment',
 };

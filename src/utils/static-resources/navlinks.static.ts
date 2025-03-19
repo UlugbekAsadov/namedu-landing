@@ -19,11 +19,14 @@ export const NAVLINKS_STATIC: ILink[] = [
   },
   {
     title: 'Faoliyat',
-    to: '',
+    to: `/${ROUTE_PATHS.ACTIVITY}`,
     subItems: [
-      { title: 'Korrupsiyaga qarshi kurash', to: '' },
-      { title: 'Xalqaro hamkorlik', to: '' },
-      { title: 'Investitsion faoliyat', to: '' },
+      { title: 'Korrupsiyaga qarshi kurash', to: `/${ROUTE_PATHS.CORRUPTION}` },
+      {
+        title: 'Xalqaro hamkorlik',
+        to: `/${ROUTE_PATHS.INTERNATIONAL_COOPERATION}`,
+      },
+      { title: 'Investitsion faoliyat', to: `/${ROUTE_PATHS.INVESTMENT}` },
     ],
   },
   { title: 'Yangiliklar', to: `/${ROUTE_PATHS.NEWS}#news` },

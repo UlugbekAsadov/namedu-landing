@@ -12,6 +12,7 @@ const NewsPage = lazy(() => import('@pages/News/News'));
 import NotFound from '@/pages/404/NotFound';
 const Organizations = lazy(() => import('@/pages/organizations/Organizations'));
 const News = lazy(() => import('@/pages/News/AllNews'));
+const Activity = lazy(() => import('@/pages/Activity/Activity'));
 
 const routes = createBrowserRouter([
   {
@@ -61,6 +62,16 @@ const routes = createBrowserRouter([
           <ErrorBoundry>
             <Suspense>
               <Organizations />
+            </Suspense>
+          </ErrorBoundry>
+        ),
+      },
+      {
+        path: `${ROUTE_PATHS.ACTIVITY}`,
+        element: (
+          <ErrorBoundry>
+            <Suspense>
+              <Activity />
             </Suspense>
           </ErrorBoundry>
         ),
