@@ -11,6 +11,7 @@ class RequestWrapper {
       baseURL: BASE_URL,
       headers: {
         'Content-Type': 'application/json',
+        organization: this.getOrganization(),
       },
     });
 
@@ -22,6 +23,15 @@ class RequestWrapper {
     });
   }
 
+  getOrganization(): string {
+    const hostname = window.location.hostname;
+    const isDev = import.meta.env.DEV;
+    const domain = isDev ? 'localhost' : 'namedu.uz';
+
+    const subdomain = hostname.replace(`.${domain}`, '');
+
+    return subdomain === hostname ? 'main' : subdomain;
+  }
   // GET Method
   async get<T>(endpoint: string): Promise<AxiosResponse<T>> {
     return this.api.get<T>(endpoint);
