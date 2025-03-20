@@ -1,54 +1,78 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { IoDocuments } from 'react-icons/io5';
 
 import { Button } from '@/components/shared/Button';
 import HeadingH1 from '@/components/shared/Heading';
 import List from '@/components/shared/List';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
-import { documentsData } from '@/utils/static-resources/documents.static';
+import { useQuery } from '@tanstack/react-query';
+import { AxiosResponse } from 'axios';
+import {
+  DocumentCategoryTypes,
+  IDocumentCategory,
+} from '@/utils/interfaces/document-categories.interface';
+import { QUERY_KEYS } from '@/utils/constants/query-keys';
+import { getDocumentCategories } from '@/requests/document-categories.requests';
+import { IDocument } from '@/utils/interfaces/documents.interface';
+import { getDocuments } from '@/requests/documents.requests';
 
 export const Corruptions = () => {
-  const [activeTab, setActiveTab] = useState(documentsData[0].category);
+  const [activeTab, setActiveTab] = useState<string | undefined>(undefined);
+
+  const { data } = useQuery<AxiosResponse<IDocumentCategory>, Error>({
+    queryKey: [
+      QUERY_KEYS.DOCUMENT_CATEGORIES.ALL(DocumentCategoryTypes.Corruption),
+    ],
+    queryFn: () => getDocumentCategories(DocumentCategoryTypes.Corruption),
+    staleTime: 1000 * 60 * 5,
+  });
+
+  const documents = useQuery<AxiosResponse<IDocument>>({
+    queryKey: ['documents', `category:${activeTab}`],
+    queryFn: () => getDocuments(activeTab as string),
+    enabled: !!activeTab,
+  });
+
+  useEffect(() => {
+    if (activeTab === undefined) {
+      setActiveTab(data?.data.documentCategories?.[0]?._id || undefined);
+    }
+  }, [data?.data.documentCategories]);
 
   return (
-    <div id="corruption" className="flex flex-col gap-10 items-center">
+    <div id="documents" className="flex flex-col gap-10 items-center">
       <HeadingH1 className="!mb-0 text-center">
         Korrupsiyaga qarshi kurash
       </HeadingH1>
       <div className=" w-full lg:w-[1000px]  flex flex-col gap-10 items-center">
-        <div className=" w-[90%] scrollbar-hide overflow-x-scroll overflow-hidden flex gap-5 items-center">
-          {documentsData.map((item, index) => (
-            <Button
-              className={`p-2 px-6 uppercase font-semibold  ${item.category === activeTab ? 'border border-secondary-button bg-transparent text-secondary-button' : 'bg-transparent text-[#BABEC3]'}`}
-              key={index}
-              onClick={() => setActiveTab(item.category)}
-            >
-              {item.category}
-            </Button>
-          ))}
-        </div>
-
         <ScrollArea className="flex flex-col gap-5 w-full  h-[500px]  p-6  rounded-14 ">
-          {documentsData.map(
-            (item, index) =>
-              item.category === activeTab && (
+          <div className=" w-[90%] scrollbar-hide overflow-x-scroll  flex gap-5 items-center p-2">
+            {data?.data.documentCategories.map((category) => (
+              <Button
+                className={`p-2 px-6 uppercase font-semibold  ${category._id === activeTab ? 'border border-secondary-button bg-transparent text-secondary-button' : 'bg-transparent text-[#BABEC3]'}`}
+                key={category._id}
+                onClick={() => setActiveTab(category._id)}
+              >
+                {category.name}
+              </Button>
+            ))}
+          </div>
+
+          {documents.data?.data.documents.length ? (
+            <>
+              {documents.data?.data.documents.map((item, index) => (
                 <div className="flex flex-col gap-5 w-full" key={index}>
-                  {item.files.length === 0 && (
-                    <div className="text-[#BABEC3] text-center flex flex-col items-center gap-7 ">
-                      <IoDocuments className="text-[100px] text-[#BABEC3]" />
-                      <span className="text-[20px]">Hujjatlar topilmadi</span>
-                    </div>
-                  )}
-                  {item.files.map((file, fileIndex) => (
-                    <List
-                      key={fileIndex}
-                      title={file.label}
-                      fileUrl={file.url}
-                    />
-                  ))}
+                  <List key={item._id} title={item.name} fileUrl={item.file} />
                 </div>
-              )
+              ))}
+            </>
+          ) : (
+            <div className="text-[#BABEC3] text-center flex flex-col items-center gap-7 mt-20">
+              <IoDocuments className="text-[100px] text-[#BABEC3]" />
+              <span className="text-[20px]">Hujjatlar topilmadi</span>
+            </div>
           )}
+
           <ScrollBar />
         </ScrollArea>
       </div>

@@ -46,9 +46,6 @@ export default [
 
       '@typescript-eslint/no-shadow': ['error'],
 
-      // Prettier rules
-      'prettier/prettier': 'error',
-
       // General rules
       'no-console': 'warn',
       'no-debugger': 'warn',
@@ -72,6 +69,12 @@ export default [
         },
       ],
       'jsx-a11y/label-has-associated-control': ['error', { assert: 'either' }],
+      'prettier/prettier': [
+        'error',
+        {
+          endOfLine: 'auto',
+        },
+      ],
     },
     settings: {
       react: {

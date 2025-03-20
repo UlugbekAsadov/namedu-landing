@@ -9,4 +9,10 @@ export const API_URLS = {
   LEADERS: {
     GET_LEADERS: `${BASE_URL}/leaders`,
   },
+  DOCUMENT_CATEGORIES: {
+    GET_DOCUMENT_CATEGORIES: `${BASE_URL}/document-categories`,
+  },
+  DOCUMENTS: {
+    GET_DOCUMENTS: `${BASE_URL}/documents`,
+  },
 };
