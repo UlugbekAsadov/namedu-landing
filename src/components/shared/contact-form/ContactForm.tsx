@@ -6,14 +6,26 @@ import { Button } from '@/components/shared/Button';
 import { Form, FormControl, FormField, FormItem } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { sendEmail } from '@/utils/api/emailjs.instance';
 import { toast } from 'sonner';
+import { useMutation } from '@tanstack/react-query';
+import { sendEmailToOrganization } from '@/requests/organizations.requests';
+
+export interface IForm {
+  name: string;
+  phone_number: string;
+  message: string;
+}
+
+const userFormSchema = z.object({
+  name: z.string().nonempty('Ismingizni kiriting'),
+  phone_number: z.string().nonempty('Telefon raqamingizni kiriting.'),
+  message: z.string().min(1, { message: 'Habar matnini kiriting' }),
+});
 
 const ContactForm = () => {
-  const userFormSchema = z.object({
-    name: z.string().nonempty('Ismingizni kiriting'),
-    phone_number: z.string().nonempty('Telefon raqamingizni kiriting.'),
-    message: z.string().min(1, { message: 'Habar matnini kiriting' }),
+  const sendEmailMutation = useMutation({
+    mutationFn: (body: IForm) => sendEmailToOrganization(body),
+    onSuccess: () => {},
   });
 
   const methods = useForm<z.infer<typeof userFormSchema>>({
@@ -34,7 +46,7 @@ const ContactForm = () => {
 
   const onSubmit = async (data: z.infer<typeof userFormSchema>) => {
     try {
-      await sendEmail(data);
+      await sendEmailMutation.mutateAsync(data);
 
       toast.success(
         "Xabaringiz qabul qilindi. Tez orada siz bilan bog'lanamiz."

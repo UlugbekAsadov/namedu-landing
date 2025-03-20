@@ -9,6 +9,10 @@ export const API_URLS = {
   LEADERS: {
     GET_LEADERS: `${BASE_URL}/leaders`,
   },
+  ORGANIZATIONS: {
+    GET_CURRENT: `${BASE_URL}/organizations/current`,
+    POST_EMAIL: `${BASE_URL}/organizations/send-email`,
+  },
   DOCUMENT_CATEGORIES: {
     GET_DOCUMENT_CATEGORIES: `${BASE_URL}/document-categories`,
   },

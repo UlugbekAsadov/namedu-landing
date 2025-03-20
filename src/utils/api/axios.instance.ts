@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosResponse } from 'axios';
+import axios, { Axios, AxiosInstance, AxiosResponse } from 'axios';
 import axiosRetry from 'axios-retry';
 
 import { BASE_URL } from '@/utils/constants/api-urls';
@@ -35,6 +35,10 @@ class RequestWrapper {
   // GET Method
   async get<T>(endpoint: string): Promise<AxiosResponse<T>> {
     return this.api.get<T>(endpoint);
+  }
+
+  async post<T, K>(endpoint: string, data: K): Promise<AxiosResponse<T>> {
+    return this.api.post<T>(endpoint, data);
   }
 }
 
