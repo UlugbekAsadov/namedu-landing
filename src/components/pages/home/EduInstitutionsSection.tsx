@@ -14,7 +14,7 @@ import { scrollTo } from '@/utils/scroll-to';
 import { eduInstitutesData } from '@/utils/static-resources/eduInstitites.static';
 import CustomPagination from '@/components/shared/Pagination';
 
-const EduInstitutions = () => {
+const EducationalInstitutionsPage = () => {
   const [activeTab, setActiveTab] = useState(eduInstitutesData[0].category);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 11;
@@ -45,7 +45,7 @@ const EduInstitutions = () => {
       </HeadingH1>
 
       {/* Category Tabs */}
-      <div className="w-full max-w-[1200px] mb-6 overflow-x-auto flex flex-wrap justify-center gap-4">
+      <div className="  scrollbar-hide overflow-x-scroll overflow-hidden flex gap-2 items-center">
         {eduInstitutesData.map((item, index) => (
           <Button
             key={index}
@@ -71,14 +71,25 @@ const EduInstitutions = () => {
             <TableRow className="h-[60px] bg-cards-lavender-blue text-secondary-heading">
               <TableHead className="px-2 text-left">№</TableHead>
               <TableHead className="px-2 text-left">
-                {activeTab === 'Oliy taʼlim muassasalari'
-                  ? 'Oliy taʼlim muassasasi nomi'
-                  : 'Tuman nomi'}
+                Taʼlim muassasasi nomi
               </TableHead>
-              <TableHead className="px-2 text-left">
-                Joylashgan manzili
-              </TableHead>
-              <TableHead className="px-2 text-left">Masul rektorlar</TableHead>
+              {activeTab === "Kasbiy ta'lim tashkilotlari" ? (
+                <>
+                  <TableHead className="px-2 text-left">
+                    Joylashgan manzili
+                  </TableHead>
+                  <TableHead className="px-2 text-left">MFY</TableHead>
+                  <TableHead className="px-2 text-left">Lokatsiya</TableHead>
+                  <TableHead className="px-2 text-left">Vebsayt</TableHead>
+                </>
+              ) : (
+                <>
+                  <TableHead className="px-2 text-left">
+                    Joylashgan manzili
+                  </TableHead>
+                  <TableHead className="px-2 text-left">Rektor</TableHead>
+                </>
+              )}
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -91,8 +102,40 @@ const EduInstitutions = () => {
                   {(currentPage - 1) * itemsPerPage + index + 1}
                 </TableCell>
                 <TableCell className="px-2">{item.name}</TableCell>
-                <TableCell className="px-2">{item.address}</TableCell>
-                <TableCell className="px-2">{item.rector}</TableCell>
+
+                {activeTab === "Kasbiy ta'lim tashkilotlari" ? (
+                  <>
+                    <TableCell className="px-2">
+                      {(item as { region: string }).region}
+                    </TableCell>
+                    <TableCell className="px-2">
+                      {(item as { mfy: string }).mfy}
+                    </TableCell>
+                    <TableCell className="px-2">
+                      {(item as { location: string }).location}
+                    </TableCell>{' '}
+                    <TableCell className="px-2">
+                      {(item as { website: string | undefined })?.website ? (
+                        <a
+                          href={(item as { website: string }).website}
+                          target="_blank"
+                          className="underline"
+                        >
+                          Havola
+                        </a>
+                      ) : null}
+                    </TableCell>
+                  </>
+                ) : (
+                  <>
+                    <TableCell className="px-2">
+                      {(item as { address: string }).address}
+                    </TableCell>
+                    <TableCell className="px-2">
+                      {(item as { rector: string }).rector}
+                    </TableCell>
+                  </>
+                )}
               </TableRow>
             ))}
           </TableBody>
@@ -109,4 +152,4 @@ const EduInstitutions = () => {
   );
 };
 
-export default EduInstitutions;
+export default EducationalInstitutionsPage;
