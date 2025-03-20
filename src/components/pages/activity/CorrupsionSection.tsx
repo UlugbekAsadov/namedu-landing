@@ -40,7 +40,7 @@ export const Corruptions = () => {
   }, [data?.data.documentCategories]);
 
   return (
-    <div id="documents" className="flex flex-col gap-10 items-center">
+    <div id="corruption" className="flex flex-col gap-10 items-center">
       <HeadingH1 className="!mb-0 text-center">
         Korrupsiyaga qarshi kurash
       </HeadingH1>
