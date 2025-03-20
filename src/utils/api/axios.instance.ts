@@ -1,4 +1,4 @@
-import axios, { Axios, AxiosInstance, AxiosResponse } from 'axios';
+import axios, { AxiosInstance, AxiosResponse } from 'axios';
 import axiosRetry from 'axios-retry';
 
 import { BASE_URL } from '@/utils/constants/api-urls';
