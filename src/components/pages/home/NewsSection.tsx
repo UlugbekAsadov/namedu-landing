@@ -9,6 +9,7 @@ import { Card } from '@/components/shared/NewsCard';
 import { useNewsQuery } from '@/queries/news.query';
 import { ROUTE_PATHS } from '@/utils/constants/route.paths';
 import CustomPagination from '@/components/shared/Pagination';
+import { IoNewspaper } from 'react-icons/io5';
 
 const News = () => {
   const [isShowMore, setIsShowMore] = useState(false);
@@ -42,9 +43,10 @@ const News = () => {
 
   return (
     <>
-      {news && news?.length > 0 && (
+      <HeadingH1>Yangiliklar</HeadingH1>
+
+      {news && news?.length > 0 ? (
         <div id="news" className="w-full transition-all transform duration-300">
-          <HeadingH1>Yangiliklar</HeadingH1>
           <CardWrapper>
             {currentNews.map((data) => (
               <Card key={data._id} data={data} onClickMore={handleNavigate} />
@@ -71,6 +73,11 @@ const News = () => {
             {isShowMore ? 'Qisqartish' : 'Ko’proq ko’rsatish'}
             <PiArrowCircleUpRightFill />
           </Button>
+        </div>
+      ) : (
+        <div className="text-[#BABEC3] text-center flex flex-col items-center gap-7 mt-20">
+          <IoNewspaper className="text-[100px] text-[#BABEC3]" />
+          <span className="text-[20px]">Yangiliklar topilmadi</span>
         </div>
       )}
     </>

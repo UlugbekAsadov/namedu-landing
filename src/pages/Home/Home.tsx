@@ -1,4 +1,3 @@
-import Admission from '@/components/pages/home/AdmissionSection';
 import Documents from '@/components/pages/home/DocumentsSection';
 import Executives from '@/components/pages/home/ExecutivesSection';
 import ManagementStructure from '@/components/pages/home/ManagementStructureSection';
@@ -14,7 +13,6 @@ const HomePage = () => {
       <TasksAndFunctions />
       <ManagementStructure />
       <Documents />
-      <Admission />
       <RegioanalAdministaration />
     </div>
   );

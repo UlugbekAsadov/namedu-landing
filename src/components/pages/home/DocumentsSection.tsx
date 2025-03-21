@@ -35,7 +35,7 @@ const Documents = () => {
 
   useEffect(() => {
     if (activeTab === undefined) {
-      setActiveTab(data?.data.documentCategories[0]._id);
+      setActiveTab(data?.data.documentCategories[0]?._id);
     }
   }, [data?.data.documentCategories]);
 

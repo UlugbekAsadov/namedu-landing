@@ -122,20 +122,41 @@ const Navbar = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <ul className="flex flex-col justify-center items-center gap-4 text-white text-lg">
-                {NAVLINKS_STATIC.map(({ title, to }) => (
-                  <li
-                    key={title}
-                    className="cursor-pointer hover:text-[#ffffff]/50 duration-300 font-extralight"
-                  >
-                    <button
-                      onClick={() => {
-                        handleNavigation(to);
-                        toggleMenu();
-                      }}
+                {NAVLINKS_STATIC.map(({ title, to, subItems }) => (
+                  <>
+                    <li
+                      key={title}
+                      className="cursor-pointer hover:text-[#ffffff]/50 duration-300 font-extralight"
                     >
-                      {title}
-                    </button>
-                  </li>
+                      <button
+                        onClick={() => {
+                          handleNavigation(to);
+                          toggleMenu();
+                        }}
+                      >
+                        {title}
+                      </button>
+                    </li>
+                    {subItems?.length ? (
+                      <>
+                        {subItems.map((item) => (
+                          <li
+                            key={title}
+                            className="cursor-pointer hover:text-[#ffffff]/50 duration-300 font-extralight"
+                          >
+                            <button
+                              onClick={() => {
+                                handleNavigation(item.to);
+                                toggleMenu();
+                              }}
+                            >
+                              {item.title}
+                            </button>
+                          </li>
+                        ))}
+                      </>
+                    ) : null}
+                  </>
                 ))}
                 <Button
                   onClick={() => {
