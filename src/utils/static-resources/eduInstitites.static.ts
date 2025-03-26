@@ -187,14 +187,14 @@ export const eduInstitutesData = [
         name: 'Uchqoʻrgʻon tuman 1-son politexnikumi',
         region: 'Uchqoʻrgʻon tuman',
         mfy: 'Yoshlik MFY',
-        website: 'https://uchqugon1politexnikum.namedu.uz/',
+        website: 'https://uchqurgon1politexnikum.namedu.uz/',
         location: '41.10748378886006, 72.07846625881793',
       },
       {
         name: 'Uchqoʻrgʻon tuman 2-son politexnikumi',
         region: 'Uchqoʻrgʻon tuman',
         mfy: 'Dexqonobod MFY',
-        website: 'https://uchqugon2politexnikum.namedu.uz/',
+        website: 'https://uchqurgon2politexnikum.namedu.uz/',
         location: '41.09483544505321, 72.09930453428176',
       },
       {
@@ -256,7 +256,7 @@ export const eduInstitutesData = [
         name: 'Namangan xizmat koʻrsatish va servis texnikumi',
         region: 'Namangan shahar',
         mfy: 'Gulbogʻ MFY',
-        website: 'https://namxizmatpolitexnikum.namedu.uz/',
+        website: 'https://namxizmattexnikum.namedu.uz/',
         location: '41.019660, 71.714726',
       },
       {
@@ -334,7 +334,7 @@ export const eduInstitutesData = [
         name: 'Toʻraqoʻrgʻon agrosanoat texnikumi',
         region: 'Toʻraqoʻrgʻon tuman',
         mfy: 'Yortepa MFY',
-        website: 'https://turaqorgonagrosanoatpolitexnikum.namedu.uz',
+        website: 'https://turaqorgonagrosanoattexnikum.namedu.uz',
         location: '41.21704389122551, 71.70134074256512',
       },
       {

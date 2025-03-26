@@ -40,6 +40,7 @@ const Header = () => {
 
   return (
     <header
+      id="header"
       style={{
         backgroundImage: `${getGradient()}, url(${getBackgroundImage()})`,
       }}

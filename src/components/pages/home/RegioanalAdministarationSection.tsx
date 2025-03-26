@@ -2,9 +2,19 @@ import { useState } from 'react';
 
 import HeadingH1 from '@/components/shared/Heading';
 import { RegionsStatic } from '@/utils/static-resources/regions.static';
+import { getCurrentOrganization } from '@/requests/organizations.requests';
+import { useQuery } from '@tanstack/react-query';
 
 const RegioanalAdministaration = () => {
   const [hoveredRegion, setHoveredRegion] = useState('nam-to');
+  const { data, isLoading } = useQuery({
+    queryKey: ['current-organization'],
+    queryFn: () => getCurrentOrganization(),
+  });
+
+  if (isLoading) return null;
+
+  if (!data?.data.info) return null;
 
   const handleHoverRegion = (regionId: string | null) => {
     setHoveredRegion(regionId || 'nam-to');
@@ -47,19 +57,22 @@ const RegioanalAdministaration = () => {
           <h2 className="text-2xl font-semibold">{regionData?.name}</h2>
           <div className="flex flex-col gap-3 text-md">
             <span>
-              <b>Boshliq:</b> {regionData?.leader}
+              <b>Boshliq:</b> {data.data.info?.leader || '-'}
             </span>
             <span>
-              <b>Lavozim:</b> {regionData?.position}
+              <b>Lavozim:</b> {data.data.info?.leader_position || '-'}
             </span>
             <span>
-              <b>Telefon:</b> {regionData?.phone}
+              <b>Telefon:</b> {data.data.info?.phone || '-'}
             </span>
             <span>
-              <b>Qabul kunlari:</b> {regionData?.receptionHours}
+              <b>Qabul kunlari:</b> {data.data.info?.reception_time || '-'}
             </span>
             <span>
-              <b>E-Mail:</b> {regionData?.email}
+              <b>E-Mail:</b> {data.data.info?.email || '-'}
+            </span>
+            <span>
+              <b>Call-markaz:</b> 1006
             </span>
           </div>
         </div>

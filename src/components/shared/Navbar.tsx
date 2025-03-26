@@ -77,18 +77,7 @@ const Navbar = () => {
         </ul>
 
         {/* Call Button */}
-        <Button
-          onClick={() => {
-            window.location.href = 'tel:1006';
-          }}
-          size="icon"
-          variant="icon"
-          className="hidden xl:flex items-center gap-2 text-white text-2xl"
-        >
-          <img src="/assets/icons/call.svg" alt="Call icon" loading="lazy" />
-          <span>1006</span>
-        </Button>
-
+        <div></div>
         {/* Mobile Menu Toggle */}
         <div className="xl:hidden">
           <Button

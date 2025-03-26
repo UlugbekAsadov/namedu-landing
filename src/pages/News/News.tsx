@@ -16,7 +16,7 @@ const NewsPage = () => {
   const id = searchParams.get('id');
 
   const { data: news } = useNewsByIdQuery(id!);
-  const { title, content, createdAt } = news || {};
+  const { title, content, createdAt, images } = news || {};
 
   useEffect(() => {
     if (id) {
@@ -45,6 +45,15 @@ const NewsPage = () => {
     });
   };
 
+  const handleSelectImage = (image: string) => {
+    document
+      .getElementById('header')
+      ?.style.setProperty(
+        'background-image',
+        `linear-gradient(180deg, rgba(0, 0, 0, 0.85) 10.69%, rgba(0, 0, 0, 0.4) 22.75%), url(${image})`
+      );
+  };
+
   return (
     <div className="min-h-screen h-max max-w-5xl w-full mx-auto relative  p-4 sm:p-6 md:p-8">
       <div className="relative -top-10 w-full flex flex-col gap-6">
@@ -63,6 +72,18 @@ const NewsPage = () => {
 
         {/* News Content */}
         <div className="text-justify leading-relaxed font-light text-base sm:text-lg md:text-xl h-full  p-4 sm:p-6 md:p-8 rounded-12 ">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 mb-4">
+            {images?.map((image) => (
+              <img
+                key={image}
+                src={image}
+                alt={title}
+                onClick={() => handleSelectImage(image)}
+                className="w-full h-full object-fill  rounded-12 cursor-pointer"
+              />
+            ))}
+          </div>
+
           <p
             dangerouslySetInnerHTML={{
               __html: formatContentWithLinks(content || ''),

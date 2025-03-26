@@ -12,8 +12,8 @@ export const NAVLINKS_STATIC: ILink[] = [
     to: 'management',
     subItems: [
       { title: 'Rahbariyat', to: 'executives' },
-      { title: 'Vazifalar va funksiyalar', to: 'tasks_and_functions' },
       { title: "Bo'limlar", to: 'sections' },
+      { title: 'Vazifalar va funksiyalar', to: 'tasks_and_functions' },
       { title: 'Me’yoriy Hujjatlar', to: 'documents' },
     ],
   },
