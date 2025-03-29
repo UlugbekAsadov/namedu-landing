@@ -4,12 +4,15 @@ import Router from './routes/index.routes.tsx';
 import { ReactQueryLayout } from './layouts/react-query-layout.tsx';
 
 import './styles/index.css';
+import { InitDataProvider } from './contexts/init-data.context.tsx';
 
 const Main = () => {
   return (
     <ReactQueryLayout>
-      <Router />
-      <Toaster theme="light" richColors />
+      <InitDataProvider>
+        <Router />
+        <Toaster theme="light" richColors />
+      </InitDataProvider>
     </ReactQueryLayout>
   );
 };

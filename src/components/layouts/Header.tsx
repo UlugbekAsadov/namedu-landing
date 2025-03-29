@@ -10,11 +10,14 @@ import { useNewsByIdQuery } from '@/queries/news.query';
 import { ROUTE_PATHS } from '@/utils/constants/route.paths';
 import { scrollTo } from '@/utils/scroll-to';
 import SocialSidebar from '../shared/SocialSidebar';
+import { useInitData } from '@/contexts/init-data.context';
 
 const Header = () => {
   const location = useLocation();
   const [searchParams] = useSearchParams();
   const id = searchParams.get('id');
+
+  const { organization } = useInitData();
 
   const { data: news } = useNewsByIdQuery(id || '');
 
@@ -55,7 +58,7 @@ const Header = () => {
         {!pathName && (
           <>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold max-w-full md:max-w-[700px] lg:max-w-[1000px]">
-              NAMANGAN VILOYATI OLIY TA'LIM, FAN VA INNOVATSIYALAR BOSHQARMASI
+              {organization?.title}
             </h1>
 
             <Button

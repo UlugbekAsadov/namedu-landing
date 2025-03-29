@@ -74,7 +74,7 @@ export const executivesData = [
     img: '/assets/images/sbb.png',
 
     name: "Sharipov Boburbek Botirali o'g'li",
-    position: 'Xorijiy tillarni ommalashtirish bo‘yicha bosh mutaxassis',
+    position: "Korrupsiyaga qarshi kurashish bo'yicha bosh mutaxassis",
   },
   {
     img: '/assets/images/ana.png',

@@ -15,6 +15,15 @@ const SocialSidebar = ({ className }: ISocialSidebar) => {
 
   if (isLoading) return null;
 
+  if (
+    !data?.data.socialMedia?.instagram &&
+    !data?.data.socialMedia?.telegram &&
+    !data?.data.socialMedia?.facebook &&
+    !data?.data.socialMedia?.youtube
+  ) {
+    return null;
+  }
+
   return (
     <div
       className={` fixed right-0 top-1/3 z-50 flex flex-col gap-3 p-2 bg-[#122F4C]/70 rounded-l-12 ${className}`}

@@ -16,4 +16,5 @@ export interface IOrganization {
     reception_time: string | null;
     email: string | null;
   };
+  title: string | null;
 }
