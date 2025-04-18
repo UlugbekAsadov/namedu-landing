@@ -1,3 +1,4 @@
+import { useLocaleContext } from '@/contexts/locale.context';
 import ContactForm from './ContactForm';
 
 interface ContactInterface {
@@ -5,19 +6,22 @@ interface ContactInterface {
   paragraph?: string;
 }
 
+
 const Contact = ({
-  title = 'Biz bilan bog’laning',
-  paragraph = "Ma'lumotlaringizni qoldiring va biz sizga tez orada aloqaga chiqamiz",
+  title = 'contact.title',
+  paragraph = 'contact.paragraph',
 }: ContactInterface) => {
+const { t } = useLocaleContext();
+
   return (
     <div
       id="contact"
       className="text-white   relative px-1 sm:px-8 lg:px-[60px] flex flex-col  lg:flex-row items-center justify-between bg-secondary-background w-full rounded-12 py-10 lg:py-0 min-h-[550px] my-32"
     >
       <div className="flex flex-col gap-6 text-center lg:text-left items-center lg:items-start lg:w-1/2 2xl:pl-16 md:mb-12 ">
-        <h1 className=" text-fluid-h3   leading-[1] font-normal ">{title}</h1>
+        <h1 className=" text-fluid-h3   leading-[1] font-normal ">{t(title)}</h1>
         <p className="text-fluid-p  font-extralight  sm:w-[60%] lg:w-[80%]">
-          {paragraph}
+          {t(paragraph)}
         </p>
       </div>
 

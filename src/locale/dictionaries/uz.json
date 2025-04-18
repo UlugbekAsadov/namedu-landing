@@ -1,0 +1,110 @@
+{
+  "header": {
+    "contact": "Murojaat yuborish"
+  },
+  "executives": {
+    "title": "Rahbariyat",
+    "more": "Ko'proq ko'rsatish",
+    "showLess": "Qisqartirish"
+  },
+  "news": {
+    "title": "Yangiliklar",
+    "more": "Ko'proq ko'rsatish",
+    "showLess": "Qisqartirish",
+    "noNews": "Yangiliklar topilmadi",
+    "readMore": "Batafsil",
+    "share": "Yangilikni ulashish",
+    "copied": "Nusxa olindi!",
+    "link": "Havola",
+    "twitter": "Twitter",
+    "telegram": "Telegram",
+    "go_back": "Ortga"
+  },
+  "sections": {
+    "title": "Bo'limlar",
+    "description": "Namangan viloyati oliy ta'lim, fan va innovatsiyalar boshqarmasi bo'limlari",
+    "list": {
+      "first": "Boshqarma boshlig'i",
+      "second": "Mehnat bozorini tahlili va ish beruvchilar bilan hamkorlik qilish sho'basi",
+      "third": "Ta'lim jarayonini tashkil etish sho'basi",
+      "fourth": "Innovatsion rivojlanish sho'basi",
+      "fifth": "Ta'lim sifati nazorati, bo'yicha bosh mutaxassis",
+      "sixth": "Korrupsiyaga qarshi kurashish bo'yicha bosh mutaxassis",
+      "seventh": "Texnik ta'minot va ekspuluatsiya bo'yicha bosh mutaxassis",
+      "eighth": "Bosh xisobchi"
+    }
+  },
+  "tasks_and_functions": {
+    "title": "Vazifalar va funksiyalar",
+    "description": "Quyidagilar Oliy ta’lim, fan va innovatsiyalar boshqarmasi faoliyatining ustuvor yo‘nalishlari hisoblanadi: -Viloyatda oliy ta’lim, ilm-fan va innovatsion faoliyat, o‘rta maxsus, professional ta’lim sohalarida yagona davlat siyosatini amalga oshirish, shuningdek, sohalarni strategik rivojlantirish yo‘nalishlarini muvofiqlashtirish; - o‘rta maxsus, professional, oliy ta’lim xizmatlarini ko‘rsatish sohasidagi faoliyatni muvofiqlashtirish, shuningdek, kadrlar malakasini oshirish va ularni qayta tayyorlash faoliyatini tashkil etish; - xalqaro mezonlar asosida o‘rta maxsus, professional va oliy ta’lim tashkilotlarida ta’lim sifatini ta’minlash, o‘quv jarayonini tashkil etish hamda ta’lim tashkilotlarining boshqaruv va pedagog kadrlarining kasbiy ko‘nikmalarini rivojlantirish bo‘yicha faoliyatni yo‘lga qo‘yish; - o‘rta maxsus, professional va oliy ta’limning ma’naviy-axloqiy mazmunini kuchaytirish, yoshlarni mustaqillik g‘oyalariga sadoqat, milliy qadriyatlarga hurmat, insonparvarlik va yuksak ma’naviy g‘oyalar asosida vatanparvarlik ruhida tarbiyalash bo‘yicha faoliyatni yo‘lga qo‘yish ; -ilmiy-tadqiqot ishlari samaradorligini oshirish, davlat ilmiy va innovatsion dasturlari ijrosini muvofiqlashtirish, shuningdek, ta’lim, ilm-fan va ishlab chiqarish o‘rtasida integratsiyani ta’minlash borasida vazirlik topshiriqlari ijrosini ta’minlash; -o‘rta maxsus, professional, oliy ta’lim, oliy ta’limdan keyingi ta’lim, fan va innovatsiyalar sohasida qo‘shma ta’lim va ilmiy dasturlarni amalga oshirish bo‘yicha xalqaro aloqalarni yo‘lga qo‘yish; -ta’lim ilm-fan va ishlab chiqarish integratsiyasini mustahkamlash, yangi ishlanmalarni tijoratlashtirish, ratsionalizatorlik faoliyati va startap ekotizimini rivojlantirish bo‘yicha vazirlik xuzuridagi agentlik va boshqarmalar bilan hamkorlikda ish tashkil etish."
+  },
+  "documents": {
+    "title": "Me’yoriy Hujjatlar",
+    "noDocuments": "Hujjatlar topilmadi"
+  },
+  "regional_administration": {
+    "title": "HUDUDIY BOSHQARMALAR",
+    "leader": "Boshliq",
+    "position": "Lavozim",
+    "phone": "Telefon",
+    "reception_time": "Qabul kunlari",
+    "email": "E-Mail",
+    "call_center": "Call-markaz"
+  },
+  "contact": {
+    "title": "Biz bilan bog’laning",
+    "paragraph": "Ma'lumotlaringizni qoldiring va biz sizga tez orada aloqaga chiqamiz",
+    "success": "Xabaringiz qabul qilindi. Tez orada siz bilan bog'lanamiz.",
+    "error": "Xatolik yuz berdi. Iltimos, qayta urinib ko'ring.",
+    "sending": "Yuborilmoqda...",
+    "send": "Yuborish",
+    "name": "Ismingiz",
+    "phone_number": "Telefon raqamingiz",
+    "message": "Xabar"
+  },
+  "navlinks": {
+    "management": "Boshqarma Haqida",
+    "activity": "Faoliyat",
+    "news": "Yangiliklar",
+    "education_institutes": "Ta’lim Muassasalari",
+    "corruption": "Korrupsiyaga qarshi kurash",
+    "international_cooperation": "Xalqaro hamkorlik",
+    "investment": "Investitsion faoliyat",
+    "leader": "Rahbariyat",
+    "sections": "Bo'limlar",
+    "tasks_and_functions": "Vazifalar va funksiyalar",
+    "documents": "Me’yoriy Hujjatlar",
+    "home": "Asosiy"
+  },
+  "footer": {
+    "title": "Ma'lumotlar",
+    "copyright": "O'zbekiston Respublikasi Oliy ta'lim, fan va innovatsiyalar vazirligi {{ year }}. Barcha huquqlari himoyalangan."
+  },
+  "corruption": {
+    "title": "Korrupsiyaga qarshi kurash",
+    "noDocuments": "Hujjatlar topilmadi"
+  },
+  "international_cooperation": {
+    "title": "Xalqaro hamkorlik",
+    "noInformation": "Ma’lumotlar topilmadi" 
+  },
+  "investment": {
+    "title": "To‘g‘ridan to‘g‘ri xorijiy investitsiya loyihalari",
+    "content": "Oʻzbekiston Respublikasi Vazirlar Mahkamasining 2024-yil 7-sentabrdagi “Oʻzbekiston Respublikasining 2024-yil III choragiga mo‘ljallangan investitsiya dasturini amalga oshirish chora-tadbirlari to‘g‘risida”gi 548/39-son qaroriga asosan 2024-yil III choragida Oliy ta’lim muassasalarining moddiy texnika bazasini mustahkamlash maqsadida xalqaro donor tashkilotlar ishtirokidagi umumiy qiymati 16,4 mln. AQSh dollarlik to‘g‘ridan-to‘g‘ri investitsiya loyihalari amalga oshirish rejalashtirilgan. Mazkur xalqaro donor tashkilotlar ishtirokidagi loyihalar doirasida 2024-yil iyul-sentabr oylarida 16,4 mln. AQSh dollar (rejaga nisbatan 100 %) investitsiya mablag‘larini o‘zlashtirildi."
+  },
+  "eduInstitutes": {
+    "title": "Ta’lim Muassasalari",
+    "name": "Ta’lim Muassasasi nomi",
+    "location": "Joylashgan manzili",
+    "rector": "Rektor",
+    "website": "Havola",
+    "mfy": "MFY",
+    "category": {
+      "primary": "Oliy ta’lim muassasalari",
+      "secondary": "Kasbiy ta’lim tashkilotlari"
+    }
+  },
+  "common": {
+    "download": "Yuklash"
+  }
+}

@@ -3,8 +3,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { NAVLINKS_STATIC } from '@/utils/static-resources/navlinks.static';
 import { SOCIAL_MEDIA } from '@/utils/static-resources/socialmedia.static';
 import { scrollTo } from '@/utils/scroll-to';
-
+import { useLocaleContext } from '@/contexts/locale.context';
 const Footer = () => {
+  const { t } = useLocaleContext();
   const year = new Date().getFullYear();
   const navigate = useNavigate();
 
@@ -53,13 +54,13 @@ const Footer = () => {
 
         {/* Navigation Links */}
         <ul className="flex flex-col items-center sm:items-start  gap-1 text-sm font-light text-white">
-          <h2 className="font-normal text-base mb-1">Ma'lumotlar</h2>
+          <h2 className="font-normal text-base mb-1">{t('footer.title')}</h2>
           {NAVLINKS_STATIC.map(({ title, to }) => (
             <li
               key={title}
               className="cursor-pointer text-white/70 hover:text-white transition-colors duration-300"
             >
-              <button onClick={() => handleNavigation(to)}>{title}</button>
+              <button onClick={() => handleNavigation(to)}>{t(title)}</button>
             </li>
           ))}
         </ul>
@@ -67,8 +68,7 @@ const Footer = () => {
 
       {/* Lower Section */}
       <p className="text-white/60 text-xs sm:text-sm font-light text-center mt-8">
-        &copy; O‘zbekiston Respublikasi Oliy taʼlim, fan va innovatsiyalar
-        vazirligi {year}. Barcha huquqlari himoyalangan.
+        &copy; {t('footer.copyright', { year })}
       </p>
     </footer>
   );

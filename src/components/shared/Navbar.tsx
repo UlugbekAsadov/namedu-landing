@@ -8,14 +8,17 @@ import { Button } from '@/components/shared/Button';
 import { NAVLINKS_STATIC } from '@/utils/static-resources/navlinks.static';
 import { scrollTo } from '@/utils/scroll-to';
 import preventScrolling from '@/utils/prevent-scrolling';
-
+import { useLocaleContext } from '@/contexts/locale.context';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+  const {  lang, setLang } = useLocaleContext();
+  const { t } = useLocaleContext();
   const toggleMenu = () => {
     setIsOpen((prev) => !prev);
     preventScrolling(!isOpen);
   };
+
   const handleNavigation = (to: string) => {
     const isInternalLink = to.startsWith('/');
     const targetId = to.includes('#') ? to.split('#')[1] : to;
@@ -50,7 +53,7 @@ const Navbar = () => {
                   className="hover:text-[#ffffff]/50 duration-300  cursor-pointer font-extralight"
                   onClick={() => handleNavigation(link.to)}
                 >
-                  {link.title}
+                  {t(link.title)}
                 </button>
                 {link.subItems?.length ? (
                   <ul className="group-hover:block hidden absolute w-full py-2 space-y-2 top-[50px] left-0">
@@ -64,7 +67,7 @@ const Navbar = () => {
                             className="hover:text-[#ffffff]/50 duration-300  cursor-pointer text-start font-extralight text-nowrap"
                             onClick={() => handleNavigation(subItem.to)}
                           >
-                            {subItem.title}
+                            {t(subItem.title)}
                           </button>
                         </li>
                       );
@@ -77,7 +80,11 @@ const Navbar = () => {
         </ul>
 
         {/* Call Button */}
-        <div></div>
+        <div className="flex items-center gap-10">
+          <button onClick={() => setLang('uz')} className={`${lang === 'uz' ? 'text-white' : 'text-gray-400'}`}>Uz</button>
+          <button onClick={() => setLang('ru')} className={`${lang === 'ru' ? 'text-white' : 'text-gray-400'}`}>Ru</button>
+          <button onClick={() => setLang('en')} className={`${lang === 'en' ? 'text-white' : 'text-gray-400'}`}>En</button>
+        </div>
         {/* Mobile Menu Toggle */}
         <div className="xl:hidden">
           <Button
@@ -123,7 +130,7 @@ const Navbar = () => {
                           toggleMenu();
                         }}
                       >
-                        {title}
+                        {t(title)}
                       </button>
                     </li>
                     {subItems?.length ? (
@@ -139,7 +146,7 @@ const Navbar = () => {
                                 toggleMenu();
                               }}
                             >
-                              {item.title}
+                              {t(item.title)}
                             </button>
                           </li>
                         ))}

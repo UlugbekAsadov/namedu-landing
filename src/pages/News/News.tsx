@@ -1,4 +1,4 @@
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { Router, useNavigate, useSearchParams } from 'react-router-dom';
 
 import Breadcrumb from '@/components/shared/BreadCrumb';
 import ShareNews from '@/components/shared/ShareNews';
@@ -7,11 +7,14 @@ import { formatDate } from '@/utils/format-date';
 import { Card } from '@/components/shared/NewsCard';
 import { useEffect } from 'react';
 import { ROUTE_PATHS } from '@/utils/constants/route.paths';
+import { useLocaleContext } from '@/contexts/locale.context';
+import { Button } from '@/components/shared/Button';
+import { FaChevronLeft } from 'react-icons/fa';
 
 const NewsPage = () => {
   const navigate = useNavigate();
   const { data: allNews } = useNewsQuery();
-
+  const { t } = useLocaleContext();
   const [searchParams] = useSearchParams();
   const id = searchParams.get('id');
 
@@ -64,7 +67,17 @@ const NewsPage = () => {
 
         {/* Breadcrumb */}
         <div className="mt-3 sm:my-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0">
-          <Breadcrumb nonClickableSegments={['yangilik']} />
+          <div className="flex items-center gap-2">
+            <Button
+              onClick={() => navigate(-1)}
+              variant={'icon'}
+              size={'icon'}
+              className="text-xs sm:text-sm bg-slate-300 w-6 h-6  rounded-6 text-black mr-3 flex-shrink-0"
+            >
+              <FaChevronLeft />
+            </Button>
+           <h2>{t("news.go_back")}</h2>
+          </div>
           <span className="text-xs sm:text-sm font-extralight text-gray-400 flex-shrink-0">
             {createdAt && formatDate(createdAt)}
           </span>
@@ -105,7 +118,7 @@ const NewsPage = () => {
         {allNews && allNews.count > 1 && (
           <div className="my-20 ">
             <h2 className="text-xl font-semibold text-primary-heading mb-4">
-              Yangiliklar
+              {t('navlinks.news')}
             </h2>
             <div className="overflow-x-scroll scrollbar-hide  ">
               <div className="flex gap-4 w-max  m-4">

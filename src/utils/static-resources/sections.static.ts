@@ -1,13 +1,12 @@
 export const SectioStatic = [
-  { title: " Boshqarma boshlig'i" },
+  { title: "sections.list.first" },
   {
-    title:
-      "Mehnat bozorini tahlili va ish beruvchilar bilan hamkorlik qilish sho'basi",
+    title: "sections.list.second",
   },
-  { title: "Ta'lim jarayonini tashkil etish sho'basi" },
-  { title: "Innovatsion rivojlanish sho'basi" },
-  { title: "Ta'lim sifati nazorati, bo'yicha bosh mutaxassis" },
-  { title: "Korrupsiyaga qarshi kurashish bo'yicha bosh mutaxassis" },
-  { title: "Texnik ta'minot va ekspuluatsiya bo'yicha bosh mutaxassis" },
-  { title: ' Bosh xisobchi' },
+  { title: "sections.list.third" },
+  { title: "sections.list.fourth" },
+  { title: "sections.list.fifth" },
+  { title: "sections.list.sixth" },
+  { title: "sections.list.seventh" },
+  { title: "sections.list.eighth" },
 ];

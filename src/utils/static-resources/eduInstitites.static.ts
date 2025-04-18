@@ -1,6 +1,6 @@
 export const eduInstitutesData = [
   {
-    category: 'Oliy taʼlim muassasalari',
+    category: 'eduInstitutes.category.primary',
     data: [
       {
         name: 'Namangan davlat universiteti',
@@ -53,7 +53,7 @@ export const eduInstitutesData = [
   },
 
   {
-    category: "Kasbiy ta'lim tashkilotlari",
+    category: "eduInstitutes.category.secondary",
     data: [
       {
         name: 'Namangan shahar 1-son politexnikumi',

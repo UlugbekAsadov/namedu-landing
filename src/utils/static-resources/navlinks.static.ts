@@ -8,30 +8,30 @@ interface ILink {
 
 export const NAVLINKS_STATIC: ILink[] = [
   {
-    title: 'Boshqarma Haqida',
+    title: 'navlinks.management',
     to: 'management',
     subItems: [
-      { title: 'Rahbariyat', to: 'executives' },
-      { title: "Bo'limlar", to: 'sections' },
-      { title: 'Vazifalar va funksiyalar', to: 'tasks_and_functions' },
-      { title: 'Me’yoriy Hujjatlar', to: 'documents' },
+      { title: 'navlinks.leader', to: 'executives' },
+      { title: "navlinks.sections", to: 'sections' },
+      { title: 'navlinks.tasks_and_functions', to: 'tasks_and_functions' },
+      { title: 'navlinks.documents', to: 'documents' },
     ],
   },
   {
-    title: 'Faoliyat',
+    title: 'navlinks.activity',
     to: `/${ROUTE_PATHS.ACTIVITY}`,
     subItems: [
-      { title: 'Korrupsiyaga qarshi kurash', to: `/${ROUTE_PATHS.CORRUPTION}` },
+      { title: 'navlinks.corruption', to: `/${ROUTE_PATHS.CORRUPTION}` },
       {
-        title: 'Xalqaro hamkorlik',
+        title: 'navlinks.international_cooperation',
         to: `/${ROUTE_PATHS.INTERNATIONAL_COOPERATION}`,
       },
-      { title: 'Investitsion faoliyat', to: `/${ROUTE_PATHS.INVESTMENT}` },
+      { title: 'navlinks.investment', to: `/${ROUTE_PATHS.INVESTMENT}` },
     ],
   },
-  { title: 'Yangiliklar', to: `/${ROUTE_PATHS.NEWS}#news` },
+  { title: 'navlinks.news', to: `/${ROUTE_PATHS.NEWS}#news` },
   {
-    title: 'Ta’lim Muassasalari',
+    title: 'navlinks.education_institutes',
     to: `/${ROUTE_PATHS.ORGANIZATIONS}#eduInstitutes`,
   },
 ];
