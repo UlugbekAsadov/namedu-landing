@@ -63,8 +63,12 @@ const Documents = () => {
           {documents.data?.data.documents.length ? (
             <>
               {documents.data?.data.documents.map((item, index) => (
-                <div className="flex flex-col gap-5 w-full" key={index}>
-                  <List key={item._id} title={item.name} fileUrl={item.file} />
+                <div className="flex flex-col gap-5 w-full mb-2" key={index}>
+                  <List
+                    key={item._id}
+                    title={item.name[lang as keyof typeof item.name]}
+                    fileUrl={item.file}
+                  />
                 </div>
               ))}
             </>
