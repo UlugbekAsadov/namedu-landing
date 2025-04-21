@@ -16,7 +16,7 @@ import CustomPagination from '@/components/shared/Pagination';
 import { useLocaleContext } from '@/contexts/locale.context';
 
 const EducationalInstitutionsPage = () => {
-  const { t } = useLocaleContext();
+  const { t, lang } = useLocaleContext();
   const [activeTab, setActiveTab] = useState(eduInstitutesData[0].category);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 11;
@@ -24,7 +24,9 @@ const EducationalInstitutionsPage = () => {
   const activeCategory = eduInstitutesData.find(
     (item) => item.category === activeTab
   );
-  const institutions = activeCategory ? activeCategory.data : [];
+  const institutions = activeCategory
+    ? activeCategory.data[lang as keyof typeof activeCategory.data]
+    : [];
   const totalPages = Math.ceil(institutions.length / itemsPerPage);
 
   const currentInstitutions = institutions.slice(
@@ -75,7 +77,7 @@ const EducationalInstitutionsPage = () => {
               <TableHead className="px-2 text-left">
                 {t('eduInstitutes.name')}
               </TableHead>
-              {activeTab === "Kasbiy ta'lim tashkilotlari" ? (
+              {activeTab === 'eduInstitutes.category.secondary' ? (
                 <>
                   <TableHead className="px-2 text-left">
                     {t('eduInstitutes.location')}
@@ -113,7 +115,7 @@ const EducationalInstitutionsPage = () => {
                 </TableCell>
                 <TableCell className="px-2">{item.name}</TableCell>
 
-                {activeTab === "Kasbiy ta'lim tashkilotlari" ? (
+                {activeTab === 'eduInstitutes.category.secondary' ? (
                   <>
                     <TableCell className="px-2">
                       {(item as { region: string }).region}
