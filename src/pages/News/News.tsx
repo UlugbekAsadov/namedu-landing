@@ -85,6 +85,7 @@ const NewsPage = () => {
           </div>
 
           <p
+            className="whitespace-pre-line"
             dangerouslySetInnerHTML={{
               __html: formatContentWithLinks(content || ''),
             }}
