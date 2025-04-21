@@ -6,7 +6,11 @@ export enum DocumentCategoryTypes {
 export interface IDocumentCategory {
   documentCategories: {
     _id: string;
-    name: string;
+    name: {
+      uz: string;
+      en: string;
+      ru: string;
+    };
     type: DocumentCategoryTypes;
   }[];
 }

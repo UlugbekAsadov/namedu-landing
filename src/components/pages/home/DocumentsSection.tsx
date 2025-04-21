@@ -18,7 +18,7 @@ import List from '@/components/shared/List';
 import { useLocaleContext } from '@/contexts/locale.context';
 
 const Documents = () => {
-  const { t } = useLocaleContext();
+  const { t, lang } = useLocaleContext();
   const [activeTab, setActiveTab] = useState<string | undefined>(undefined);
 
   const { data } = useQuery<AxiosResponse<IDocumentCategory>, Error>({
@@ -55,7 +55,7 @@ const Documents = () => {
                 key={category._id}
                 onClick={() => setActiveTab(category._id)}
               >
-                {category.name}
+                {category.name[lang as keyof typeof category.name]}
               </Button>
             ))}
           </div>
