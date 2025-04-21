@@ -9,12 +9,14 @@ import { Textarea } from '@/components/ui/textarea';
 import { toast } from 'sonner';
 import { useMutation } from '@tanstack/react-query';
 import { sendEmailToOrganization } from '@/requests/organizations.requests';
+import { useLocaleContext } from '@/contexts/locale.context';
 
 export interface IForm {
   name: string;
   phone_number: string;
   message: string;
 }
+
 
 const userFormSchema = z.object({
   name: z.string().nonempty('Ismingizni kiriting'),
@@ -23,6 +25,7 @@ const userFormSchema = z.object({
 });
 
 const ContactForm = () => {
+  const { t } = useLocaleContext();
   const sendEmailMutation = useMutation({
     mutationFn: (body: IForm) => sendEmailToOrganization(body),
     onSuccess: () => {},
@@ -48,13 +51,11 @@ const ContactForm = () => {
     try {
       await sendEmailMutation.mutateAsync(data);
 
-      toast.success(
-        "Xabaringiz qabul qilindi. Tez orada siz bilan bog'lanamiz."
-      );
+      toast.success(t('contact.success'));
 
       methods.reset();
     } catch {
-      toast.error("Xatolik yuz berdi. Iltimos, qayta urinib ko'ring.");
+      toast.error(t('contact.error'));
     }
   };
 
@@ -74,8 +75,8 @@ const ContactForm = () => {
                     className=" border border-[#ffffff]/10 w-full "
                     {...field}
                     type="text"
-                    label="Ismingiz"
-                    placeholder="Ismingizni kiriting"
+                    label={t('contact.name') as string}
+                    placeholder={t('contact.name') as string}
                     hasError={!!errors.name}
                   />
                 </FormControl>
@@ -92,8 +93,8 @@ const ContactForm = () => {
                     className=" border border-[#ffffff]/10 "
                     {...field}
                     type="tel"
-                    placeholder="+998 00 000 00 00"
-                    label="Telefon raqamingiz"
+                    placeholder={t('contact.phone_number') as string}
+                    label={t('contact.phone_number') as string}
                     hasError={!!errors.phone_number}
                   />
                 </FormControl>
@@ -108,8 +109,8 @@ const ContactForm = () => {
                 <FormControl>
                   <Textarea
                     {...field}
-                    label="Xabar"
-                    placeholder="Xabar matni"
+                    label={t('contact.message') as string}
+                    placeholder={t('contact.message') as string}
                     hasError={!!errors.message}
                     rows={10}
                     cols={0}
@@ -123,10 +124,10 @@ const ContactForm = () => {
             type="submit"
             disabled={isSubmitting}
             loading={isSubmitting}
-            loadingText="Yuborilmoqda..."
+            loadingText={t('contact.sending') as string}
             className="   bg-[#2961FF]  text-white  py-5 rounded-10 "
           >
-            Yuborish
+            {t('contact.send')}
           </Button>
         </form>
       </Form>

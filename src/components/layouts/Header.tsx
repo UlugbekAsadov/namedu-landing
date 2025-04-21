@@ -11,11 +11,13 @@ import { ROUTE_PATHS } from '@/utils/constants/route.paths';
 import { scrollTo } from '@/utils/scroll-to';
 import SocialSidebar from '../shared/SocialSidebar';
 import { useInitData } from '@/contexts/init-data.context';
+import { useLocaleContext } from '@/contexts/locale.context';
 
 const Header = () => {
   const location = useLocation();
   const [searchParams] = useSearchParams();
   const id = searchParams.get('id');
+  const { t } = useLocaleContext();
 
   const { organization } = useInitData();
 
@@ -65,7 +67,7 @@ const Header = () => {
               onClick={() => scrollTo({ targetId: 'contact' })}
               className="flex items-center justify-center gap-3 py-7 sm:py-8 text-lg sm:text-xl md:text-2xl w-fit xs:w-[300px] font-light"
             >
-              Murojat yuborish
+              {t('header.contact')}
               <PiArrowCircleUpRightFill className="text-2xl sm:text-3xl md:text-4xl" />
             </Button>
           </>

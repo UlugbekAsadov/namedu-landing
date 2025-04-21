@@ -4,6 +4,7 @@ import HeadingH1 from '@/components/shared/Heading';
 import { RegionsStatic } from '@/utils/static-resources/regions.static';
 import { getCurrentOrganization } from '@/requests/organizations.requests';
 import { useQuery } from '@tanstack/react-query';
+import { useLocaleContext } from '@/contexts/locale.context';
 
 const RegioanalAdministaration = () => {
   const [hoveredRegion, setHoveredRegion] = useState('nam-to');
@@ -24,9 +25,11 @@ const RegioanalAdministaration = () => {
     ? (RegionsStatic as any)[hoveredRegion]
     : null;
 
+  const { t } = useLocaleContext();
+  
   return (
     <div id="regional_administration" className="my-10 ">
-      <HeadingH1 className="text-center">HUDUDIY BOSHQARMALAR</HeadingH1>
+      <HeadingH1 className="text-center">{t('regional_administration.title')}</HeadingH1>
       <div className="flex flex-col lg:flex-row gap-8 items-center ">
         {/* Map Section */}
         <div className="w-full lg:w-1/2">
@@ -57,22 +60,22 @@ const RegioanalAdministaration = () => {
           <h2 className="text-2xl font-semibold">{regionData?.name}</h2>
           <div className="flex flex-col gap-3 text-md">
             <span>
-              <b>Boshliq:</b> {data.data.info?.leader || '-'}
+              <b>{t('regional_administration.leader')}:</b> {data.data.info?.leader || '-'}
             </span>
             <span>
-              <b>Lavozim:</b> {data.data.info?.leader_position || '-'}
+              <b>{t('regional_administration.position')}:</b> {data.data.info?.leader_position || '-'}
             </span>
             <span>
-              <b>Telefon:</b> {data.data.info?.phone || '-'}
+              <b>{t('regional_administration.phone')}:</b> {data.data.info?.phone || '-'}
             </span>
             <span>
-              <b>Qabul kunlari:</b> {data.data.info?.reception_time || '-'}
+              <b>{t('regional_administration.reception_time')}:</b> {data.data.info?.reception_time || '-'}
             </span>
             <span>
-              <b>E-Mail:</b> {data.data.info?.email || '-'}
+              <b>{t('regional_administration.email')}:</b> {data.data.info?.email || '-'}
             </span>
             <span>
-              <b>Call-markaz:</b> 1006
+              <b>{t('regional_administration.call_center')}:</b> 1006
             </span>
           </div>
         </div>

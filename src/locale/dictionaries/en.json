@@ -1,0 +1,110 @@
+{
+  "header": {
+    "contact": "Send Inquiry"
+  },
+  "executives": {
+    "title": "Leadership",
+    "more": "Show more",
+    "showLess": "Show less"
+  },
+  "news": {
+    "title": "News",
+    "more": "Show more",
+    "showLess": "Show less",
+    "noNews": "No news found",
+    "readMore": "Read more",
+    "share": "Share the news",
+    "copied": "Copied!",
+    "link": "Link",
+    "twitter": "Twitter",
+    "telegram": "Telegram",
+    "go_back": "Back"
+  },
+  "sections": {
+    "title": "Departments",
+    "description": "Departments of the Namangan Regional Department of Higher Education, Science and Innovation",
+    "list": {
+      "first": "Head of Department",
+      "second": "Labor Market Analysis and Employer Cooperation Division",
+      "third": "Education Process Organization Division",
+      "fourth": "Innovation Development Division",
+      "fifth": "Chief Specialist in Education Quality Control",
+      "sixth": "Chief Specialist for Combating Corruption",
+      "seventh": "Chief Specialist in Technical Support and Maintenance",
+      "eighth": "Chief Accountant"
+    }
+  },
+  "tasks_and_functions": {
+    "title": "Tasks and Functions",
+    "description": "The following are the priority areas of activity of the Department of Higher Education, Science and Innovation: - Implementing a unified state policy in the fields of higher education, science, and innovation in the region, as well as coordinating strategic development directions; - Coordinating activities in the field of providing secondary special, vocational, and higher education services, as well as organizing professional development and retraining of personnel; - Ensuring the quality of education in secondary special, vocational, and higher educational institutions according to international standards, organizing the educational process, and developing the professional skills of management and pedagogical staff of educational institutions; - Strengthening the moral and ethical content of secondary special, vocational, and higher education, and fostering patriotism in youth based on the ideas of independence, respect for national values, humanism, and high moral ideals; - Increasing the efficiency of scientific research, coordinating the implementation of state scientific and innovation programs, and ensuring integration between education, science, and production; - Establishing international relations to implement joint educational and scientific programs in the fields of secondary special, vocational, higher, and postgraduate education, science, and innovation; - Strengthening the integration of education, science, and production, commercializing new developments, promoting innovative activity, and developing the startup ecosystem in cooperation with relevant agencies and departments under the ministry."
+  },
+  "documents": {
+    "title": "Regulatory Documents",
+    "noDocuments": "No documents found"
+  },
+  "regional_administration": {
+    "title": "REGIONAL ADMINISTRATIONS",
+    "leader": "Head",
+    "position": "Position",
+    "phone": "Phone",
+    "reception_time": "Reception days",
+    "email": "E-Mail",
+    "call_center": "Call center"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "paragraph": "Leave your information and we will contact you soon",
+    "success": "Your message has been received. We will contact you shortly.",
+    "error": "An error occurred. Please try again.",
+    "sending": "Sending...",
+    "send": "Send",
+    "name": "Your name",
+    "phone_number": "Your phone number",
+    "message": "Message"
+  },
+  "navlinks": {
+    "management": "About the Department",
+    "activity": "Activity",
+    "news": "News",
+    "education_institutes": "Educational Institutions",
+    "corruption": "Anti-corruption",
+    "international_cooperation": "International Cooperation",
+    "investment": "Investment Activity",
+    "leader": "Leadership",
+    "sections": "Departments",
+    "tasks_and_functions": "Tasks and Functions",
+    "documents": "Regulatory Documents",
+    "home": "Home"
+  },
+  "footer": {
+    "title": "Information",
+    "copyright": "Ministry of Higher Education, Science and Innovation of the Republic of Uzbekistan {{ year }}. All rights reserved."
+  },
+  "corruption": {
+    "title": "Anti-corruption",
+    "noDocuments": "No documents found"
+  },
+  "international_cooperation": {
+    "title": "International Cooperation",
+    "noInformation": "No information found"
+  },
+  "investment": {
+    "title": "Direct Foreign Investment Projects",
+    "content": "According to the decision No. 548/39 of the Cabinet of Ministers of the Republic of Uzbekistan dated September 7, 2024, 'On measures for the implementation of the investment program for the third quarter of 2024,' direct investment projects involving international donor organizations with a total value of $16.4 million are planned to be implemented in the third quarter of 2024 to strengthen the material and technical base of higher educational institutions. Within the framework of these projects involving international donors, $16.4 million (100% of the plan) was utilized during July-September 2024."
+  },
+  "eduInstitutes": {
+    "title": "Educational Institutions",
+    "name": "Name of the Institution",
+    "location": "Address",
+    "rector": "Rector",
+    "website": "Link",
+    "mfy": "MFY",
+    "category": {
+      "primary": "Higher Education Institutions",
+      "secondary": "Vocational Education Institutions"
+    }
+  },
+  "common": {
+    "download": "Download"
+  }
+}

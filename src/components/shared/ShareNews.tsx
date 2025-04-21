@@ -3,7 +3,7 @@ import { FiCopy, FiCheck, FiShare2 } from 'react-icons/fi';
 import { TwitterShareButton, TelegramShareButton } from 'react-share';
 
 import { Button } from '@/components/shared/Button';
-
+import { useLocaleContext } from '@/contexts/locale.context';
 interface ShareNewsProps {
   newsTitle: string;
   newsUrl: string;
@@ -11,7 +11,7 @@ interface ShareNewsProps {
 
 const ShareNews: React.FC<ShareNewsProps> = ({ newsTitle, newsUrl }) => {
   const [copied, setCopied] = useState(false);
-
+  const { t } = useLocaleContext();
   const handleCopyLink = () => {
     navigator.clipboard.writeText(newsUrl);
     setCopied(true);
@@ -22,7 +22,7 @@ const ShareNews: React.FC<ShareNewsProps> = ({ newsTitle, newsUrl }) => {
     <div className="flex flex-col gap-4">
       <div className="flex items-center gap-2 text-lg font-normal text-slate-800">
         <FiShare2 className="" size={24} />
-        <span>Yangilikni ulashish</span>
+        <span>{t('news.share')}</span>
       </div>
 
       <div className="flex gap-3">
@@ -34,11 +34,11 @@ const ShareNews: React.FC<ShareNewsProps> = ({ newsTitle, newsUrl }) => {
         >
           {copied ? (
             <>
-              <FiCheck className="text-green-500" /> Nusxa olindi!
+              <FiCheck className="text-green-500" /> {t('news.copied')}
             </>
           ) : (
             <>
-              <FiCopy className="" /> Havola
+              <FiCopy className="" /> {t('news.link')}
             </>
           )}
         </Button>
@@ -50,7 +50,7 @@ const ShareNews: React.FC<ShareNewsProps> = ({ newsTitle, newsUrl }) => {
           title={newsTitle}
           className="hover:opacity-80 "
         >
-          <span className="text-blue-500">Twitter</span>
+          <span className="text-blue-500">{t('news.twitter')}</span>
         </TwitterShareButton>
 
         <TelegramShareButton
@@ -58,7 +58,7 @@ const ShareNews: React.FC<ShareNewsProps> = ({ newsTitle, newsUrl }) => {
           title={newsTitle}
           className="hover:opacity-80"
         >
-          <span className="text-blue-500">Telegram</span>
+          <span className="text-blue-500">{t('news.telegram')}</span>
         </TelegramShareButton>
       </div>
     </div>

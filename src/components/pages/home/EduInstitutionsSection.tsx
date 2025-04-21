@@ -13,8 +13,10 @@ import {
 import { scrollTo } from '@/utils/scroll-to';
 import { eduInstitutesData } from '@/utils/static-resources/eduInstitites.static';
 import CustomPagination from '@/components/shared/Pagination';
+import { useLocaleContext } from '@/contexts/locale.context';
 
 const EducationalInstitutionsPage = () => {
+  const { t } = useLocaleContext();
   const [activeTab, setActiveTab] = useState(eduInstitutesData[0].category);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 11;
@@ -41,7 +43,7 @@ const EducationalInstitutionsPage = () => {
       className="flex flex-col  gap-10  items-center w-full px-4"
     >
       <HeadingH1 className="text-center !mb-0 text-2xl sm:text-3xl md:text-4xl ">
-        Ta’lim Muassasalari
+        {t('eduInstitutes.title')}
       </HeadingH1>
 
       {/* Category Tabs */}
@@ -59,7 +61,7 @@ const EducationalInstitutionsPage = () => {
               setCurrentPage(1);
             }}
           >
-            {item.category}
+            {t(item.category)}
           </Button>
         ))}
       </div>
@@ -71,23 +73,31 @@ const EducationalInstitutionsPage = () => {
             <TableRow className="h-[60px] bg-cards-lavender-blue text-secondary-heading">
               <TableHead className="px-2 text-left">№</TableHead>
               <TableHead className="px-2 text-left">
-                Taʼlim muassasasi nomi
+                {t('eduInstitutes.name')}
               </TableHead>
               {activeTab === "Kasbiy ta'lim tashkilotlari" ? (
                 <>
                   <TableHead className="px-2 text-left">
-                    Joylashgan manzili
+                    {t('eduInstitutes.location')}
                   </TableHead>
-                  <TableHead className="px-2 text-left">MFY</TableHead>
-                  <TableHead className="px-2 text-left">Lokatsiya</TableHead>
-                  <TableHead className="px-2 text-left">Vebsayt</TableHead>
+                  <TableHead className="px-2 text-left">
+                    {t('eduInstitutes.mfy')}
+                  </TableHead>
+                  <TableHead className="px-2 text-left">
+                    {t('eduInstitutes.location')}
+                  </TableHead>
+                  <TableHead className="px-2 text-left">
+                    {t('eduInstitutes.website')}
+                  </TableHead>
                 </>
               ) : (
                 <>
                   <TableHead className="px-2 text-left">
-                    Joylashgan manzili
+                    {t('eduInstitutes.location')}
                   </TableHead>
-                  <TableHead className="px-2 text-left">Rektor</TableHead>
+                  <TableHead className="px-2 text-left">
+                    {t('eduInstitutes.rector')}
+                  </TableHead>
                 </>
               )}
             </TableRow>
@@ -121,7 +131,7 @@ const EducationalInstitutionsPage = () => {
                           target="_blank"
                           className="underline"
                         >
-                          Havola
+                          {t('eduInstitutes.website')}
                         </a>
                       ) : null}
                     </TableCell>

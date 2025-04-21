@@ -15,8 +15,9 @@ import { QUERY_KEYS } from '@/utils/constants/query-keys';
 import { getDocumentCategories } from '@/requests/document-categories.requests';
 import { IDocument } from '@/utils/interfaces/documents.interface';
 import { getDocuments } from '@/requests/documents.requests';
-
+import { useLocaleContext } from '@/contexts/locale.context';
 export const Corruptions = () => {
+  const { t } = useLocaleContext();
   const [activeTab, setActiveTab] = useState<string | undefined>(undefined);
 
   const { data } = useQuery<AxiosResponse<IDocumentCategory>, Error>({
@@ -42,7 +43,7 @@ export const Corruptions = () => {
   return (
     <div id="corruption" className="flex flex-col gap-10 items-center">
       <HeadingH1 className="!mb-0 text-center">
-        Korrupsiyaga qarshi kurash
+        {t('corruption.title')}
       </HeadingH1>
       <div className=" w-full lg:w-[1000px]  flex flex-col gap-10 items-center">
         <ScrollArea className="flex flex-col gap-5 w-full  h-[500px]  p-6  rounded-14 ">
@@ -69,7 +70,7 @@ export const Corruptions = () => {
           ) : (
             <div className="text-[#BABEC3] text-center flex flex-col items-center gap-7 mt-20">
               <IoDocuments className="text-[100px] text-[#BABEC3]" />
-              <span className="text-[20px]">Hujjatlar topilmadi</span>
+              <span className="text-[20px]">{t('corruption.noDocuments')}</span>
             </div>
           )}
 

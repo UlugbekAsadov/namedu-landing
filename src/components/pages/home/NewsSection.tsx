@@ -10,13 +10,14 @@ import { useNewsQuery } from '@/queries/news.query';
 import { ROUTE_PATHS } from '@/utils/constants/route.paths';
 import CustomPagination from '@/components/shared/Pagination';
 import { IoNewspaper } from 'react-icons/io5';
-
+import { useLocaleContext } from '@/contexts/locale.context';
 const News = () => {
   const [isShowMore, setIsShowMore] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const { data: newsData } = useNewsQuery();
   const navigate = useNavigate();
   const news = newsData?.news;
+  const { t } = useLocaleContext();
 
   // Function to handle navigation to news details page
   const handleNavigate = (news_id: string, title: string) => {
@@ -43,7 +44,7 @@ const News = () => {
 
   return (
     <>
-      <HeadingH1>Yangiliklar</HeadingH1>
+      <HeadingH1>{t('news.title')}</HeadingH1>
 
       {news && news?.length > 0 ? (
         <div id="news" className="w-full transition-all transform duration-300">
@@ -70,14 +71,14 @@ const News = () => {
             size="icon"
             className=" flex justify-self-end mt-3 font-light"
           >
-            {isShowMore ? 'Qisqartish' : 'Ko’proq ko’rsatish'}
+            {isShowMore ? t('news.showLess') : t('news.more')}
             <PiArrowCircleUpRightFill />
           </Button>
         </div>
       ) : (
         <div className="text-[#BABEC3] text-center flex flex-col items-center gap-7 mt-20">
           <IoNewspaper className="text-[100px] text-[#BABEC3]" />
-          <span className="text-[20px]">Yangiliklar topilmadi</span>
+          <span className="text-[20px]">{t('news.noNews')}</span>
         </div>
       )}
     </>

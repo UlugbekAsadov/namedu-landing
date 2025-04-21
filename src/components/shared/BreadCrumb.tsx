@@ -3,7 +3,7 @@ import { FaChevronLeft } from 'react-icons/fa6';
 import { Link, useLocation } from 'react-router-dom';
 
 import { Button } from './Button';
-
+import { useLocaleContext } from '@/contexts/locale.context';
 interface BreadcrumbProps {
   separator?: string;
   className?: string;
@@ -21,6 +21,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
   transformLabel = (label) => label.replace(/-/g, ' '),
   nonClickableSegments = [],
 }) => {
+  const { t } = useLocaleContext();
   const location = useLocation();
   const cleanPathname = location.pathname;
   const pathSegments = cleanPathname.split('/').filter(Boolean);
@@ -40,7 +41,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
         </Button>
         <li>
           <Link to="/" className={linkClassName}>
-            Asosiy
+            {t('navlinks.home')}
           </Link>
         </li>
         {pathSegments.map((segment, index) => {

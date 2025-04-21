@@ -15,8 +15,10 @@ import { IDocument } from '@/utils/interfaces/documents.interface';
 import { getDocuments } from '@/requests/documents.requests';
 import { IoDocuments } from 'react-icons/io5';
 import List from '@/components/shared/List';
+import { useLocaleContext } from '@/contexts/locale.context';
 
 const Documents = () => {
+  const { t } = useLocaleContext();
   const [activeTab, setActiveTab] = useState<string | undefined>(undefined);
 
   const { data } = useQuery<AxiosResponse<IDocumentCategory>, Error>({
@@ -41,7 +43,7 @@ const Documents = () => {
 
   return (
     <div id="documents" className="flex flex-col gap-10 items-center">
-      <HeadingH1 className="!mb-0 text-center">Me’yoriy Hujjatlar</HeadingH1>
+      <HeadingH1 className="!mb-0 text-center">{t('documents.title')}</HeadingH1>
       <div className=" w-full lg:w-[1000px]  flex flex-col gap-10 items-center">
         <ScrollArea className="flex flex-col gap-5 w-full  h-[500px]  p-6  rounded-14 ">
           <div className=" w-[90%] scrollbar-hide overflow-x-scroll  flex gap-5 items-center p-2">
@@ -67,7 +69,7 @@ const Documents = () => {
           ) : (
             <div className="text-[#BABEC3] text-center flex flex-col items-center gap-7 mt-20">
               <IoDocuments className="text-[100px] text-[#BABEC3]" />
-              <span className="text-[20px]">Hujjatlar topilmadi</span>
+              <span className="text-[20px]">{t('documents.noDocuments')}</span>
             </div>
           )}
 

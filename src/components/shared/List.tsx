@@ -4,7 +4,7 @@ import { IoEyeSharp } from 'react-icons/io5';
 
 import { Button } from '@/components/shared/Button';
 import { cn } from '@/utils/utils';
-
+import { useLocaleContext } from '@/contexts/locale.context';
 interface ListProps {
   title?: string;
   fileUrl: string;
@@ -20,6 +20,7 @@ const List: React.FC<ListProps> = ({
   canDownload = true,
   className,
 }) => {
+  const { t } = useLocaleContext();
   const handleView = () => {
     if (!fileUrl) return;
     window.open(fileUrl, '_blank');
@@ -52,7 +53,7 @@ const List: React.FC<ListProps> = ({
             onClick={downloadFile}
             size="sm"
           >
-            Yuklash <FiDownload className="text-base sm:text-lg" />
+            {t('common.download')} <FiDownload className="text-base sm:text-lg" />
           </Button>
         )}
         {canSee && (

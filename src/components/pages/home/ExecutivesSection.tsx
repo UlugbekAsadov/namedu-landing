@@ -9,12 +9,12 @@ import HeadingH1 from '@/components/shared/Heading';
 import CustomPagination from '@/components/shared/Pagination';
 import { executivesData } from '@/utils/static-resources/executives.static';
 import { useLeadersQuery } from '@/queries/leaders.query';
-
+import { useLocaleContext } from '@/contexts/locale.context';
 const Executives = () => {
   const [isShowMore, setIsShowMore] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const { data: leaders } = useLeadersQuery();
-
+  const { data: leaders } = useLeadersQuery()
+  const { t } = useLocaleContext();
   const initialCardCount = useMemo(() => {
     const screenWidth = window.innerWidth;
     if (screenWidth > 1536) return 8;
@@ -44,7 +44,7 @@ const Executives = () => {
       id="executives"
       className="w-full  transition-height transform duration-300"
     >
-      <HeadingH1>Rahbariyat</HeadingH1>
+      <HeadingH1>{t('executives.title')}</HeadingH1>
       <CardWrapper>
         {currentExecutives?.map((data, index) => (
           <ExecutivesCard key={index} data={data} />
@@ -67,7 +67,7 @@ const Executives = () => {
         size={'icon'}
         className="flex justify-self-end mt-3 font-light"
       >
-        {isShowMore ? 'Qisqartish' : 'Ko’proq ko’rsatish'}
+        {isShowMore ? t('executives.showLess') : t('executives.more')}
         <PiArrowCircleUpRightFill />
       </Button>
     </div>

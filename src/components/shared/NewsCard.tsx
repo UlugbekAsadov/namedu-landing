@@ -5,6 +5,7 @@ import { PiArrowCircleUpRightFill } from 'react-icons/pi';
 import { Button } from '@/components/shared/Button';
 import { INewsData } from '@/utils/interfaces/news.interface';
 import { formatDate } from '@/utils/format-date';
+import { useLocaleContext } from '@/contexts/locale.context';
 interface NewsCardProps {
   data: INewsData;
   // eslint-disable-next-line no-unused-vars
@@ -16,6 +17,7 @@ const Card: React.FC<NewsCardProps> = ({
   onClickMore,
   cardClassName,
 }) => {
+  const { t } = useLocaleContext();
   const { _id, images, title, content, createdAt } = data;
   return (
     <motion.div
@@ -49,7 +51,7 @@ const Card: React.FC<NewsCardProps> = ({
             size={'icon'}
             className=" text-sm"
           >
-            Batafsil <PiArrowCircleUpRightFill />
+            {t('news.readMore')} <PiArrowCircleUpRightFill />
           </Button>
         </div>
       </div>
