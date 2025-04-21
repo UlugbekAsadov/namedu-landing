@@ -12,7 +12,7 @@ import { useLocaleContext } from '@/contexts/locale.context';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
-  const {  lang, setLang } = useLocaleContext();
+  const { lang, setLang } = useLocaleContext();
   const { t } = useLocaleContext();
   const toggleMenu = () => {
     setIsOpen((prev) => !prev);
@@ -81,9 +81,24 @@ const Navbar = () => {
 
         {/* Call Button */}
         <div className="flex items-center gap-10">
-          <button onClick={() => setLang('uz')} className={`${lang === 'uz' ? 'text-white' : 'text-gray-400'}`}>Uz</button>
-          <button onClick={() => setLang('ru')} className={`${lang === 'ru' ? 'text-white' : 'text-gray-400'}`}>Ru</button>
-          <button onClick={() => setLang('en')} className={`${lang === 'en' ? 'text-white' : 'text-gray-400'}`}>En</button>
+          <button
+            onClick={() => setLang('uz')}
+            className={`${lang === 'uz' ? 'text-white' : 'text-gray-400'}`}
+          >
+            Uz
+          </button>
+          <button
+            onClick={() => setLang('ru')}
+            className={`${lang === 'ru' ? 'text-white' : 'text-gray-400'}`}
+          >
+            Ru
+          </button>
+          <button
+            onClick={() => setLang('en')}
+            className={`${lang === 'en' ? 'text-white' : 'text-gray-400'}`}
+          >
+            En
+          </button>
         </div>
         {/* Mobile Menu Toggle */}
         <div className="xl:hidden">

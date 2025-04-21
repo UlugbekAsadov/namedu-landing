@@ -17,7 +17,7 @@ const Header = () => {
   const location = useLocation();
   const [searchParams] = useSearchParams();
   const id = searchParams.get('id');
-  const { t } = useLocaleContext();
+  const { t, lang } = useLocaleContext();
 
   const { organization } = useInitData();
 
@@ -60,7 +60,7 @@ const Header = () => {
         {!pathName && (
           <>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold max-w-full md:max-w-[700px] lg:max-w-[1000px]">
-              {organization?.title}
+              {organization?.title[lang as keyof typeof organization.title]}
             </h1>
 
             <Button
