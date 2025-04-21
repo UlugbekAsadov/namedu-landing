@@ -13,7 +13,7 @@ import { useLocaleContext } from '@/contexts/locale.context';
 const Executives = () => {
   const [isShowMore, setIsShowMore] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const { data: leaders } = useLeadersQuery()
+  const { data: leaders } = useLeadersQuery();
   const { t } = useLocaleContext();
   const initialCardCount = useMemo(() => {
     const screenWidth = window.innerWidth;

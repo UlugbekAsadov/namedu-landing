@@ -1,6 +1,5 @@
-import { Router, useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
-import Breadcrumb from '@/components/shared/BreadCrumb';
 import ShareNews from '@/components/shared/ShareNews';
 import { useNewsByIdQuery, useNewsQuery } from '@/queries/news.query';
 import { formatDate } from '@/utils/format-date';
@@ -76,7 +75,7 @@ const NewsPage = () => {
             >
               <FaChevronLeft />
             </Button>
-           <h2>{t("news.go_back")}</h2>
+            <h2>{t('news.go_back')}</h2>
           </div>
           <span className="text-xs sm:text-sm font-extralight text-gray-400 flex-shrink-0">
             {createdAt && formatDate(createdAt)}

@@ -2,8 +2,7 @@ import HeadingH1 from '@/components/shared/Heading';
 import { SectioStatic } from '@/utils/static-resources/sections.static';
 import { useLocaleContext } from '@/contexts/locale.context';
 
-
-  const Sections = () => {
+const Sections = () => {
   const { t } = useLocaleContext();
   return (
     <div id="sections">

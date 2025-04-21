@@ -12,6 +12,7 @@ const RegioanalAdministaration = () => {
     queryKey: ['current-organization'],
     queryFn: () => getCurrentOrganization(),
   });
+  const { t } = useLocaleContext();
 
   if (isLoading) return null;
 
@@ -25,11 +26,11 @@ const RegioanalAdministaration = () => {
     ? (RegionsStatic as any)[hoveredRegion]
     : null;
 
-  const { t } = useLocaleContext();
-  
   return (
     <div id="regional_administration" className="my-10 ">
-      <HeadingH1 className="text-center">{t('regional_administration.title')}</HeadingH1>
+      <HeadingH1 className="text-center">
+        {t('regional_administration.title')}
+      </HeadingH1>
       <div className="flex flex-col lg:flex-row gap-8 items-center ">
         {/* Map Section */}
         <div className="w-full lg:w-1/2">
@@ -60,19 +61,24 @@ const RegioanalAdministaration = () => {
           <h2 className="text-2xl font-semibold">{regionData?.name}</h2>
           <div className="flex flex-col gap-3 text-md">
             <span>
-              <b>{t('regional_administration.leader')}:</b> {data.data.info?.leader || '-'}
+              <b>{t('regional_administration.leader')}:</b>{' '}
+              {data.data.info?.leader || '-'}
             </span>
             <span>
-              <b>{t('regional_administration.position')}:</b> {data.data.info?.leader_position || '-'}
+              <b>{t('regional_administration.position')}:</b>{' '}
+              {data.data.info?.leader_position || '-'}
             </span>
             <span>
-              <b>{t('regional_administration.phone')}:</b> {data.data.info?.phone || '-'}
+              <b>{t('regional_administration.phone')}:</b>{' '}
+              {data.data.info?.phone || '-'}
             </span>
             <span>
-              <b>{t('regional_administration.reception_time')}:</b> {data.data.info?.reception_time || '-'}
+              <b>{t('regional_administration.reception_time')}:</b>{' '}
+              {data.data.info?.reception_time || '-'}
             </span>
             <span>
-              <b>{t('regional_administration.email')}:</b> {data.data.info?.email || '-'}
+              <b>{t('regional_administration.email')}:</b>{' '}
+              {data.data.info?.email || '-'}
             </span>
             <span>
               <b>{t('regional_administration.call_center')}:</b> 1006

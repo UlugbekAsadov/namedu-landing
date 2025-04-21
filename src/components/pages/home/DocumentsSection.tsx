@@ -43,7 +43,9 @@ const Documents = () => {
 
   return (
     <div id="documents" className="flex flex-col gap-10 items-center">
-      <HeadingH1 className="!mb-0 text-center">{t('documents.title')}</HeadingH1>
+      <HeadingH1 className="!mb-0 text-center">
+        {t('documents.title')}
+      </HeadingH1>
       <div className=" w-full lg:w-[1000px]  flex flex-col gap-10 items-center">
         <ScrollArea className="flex flex-col gap-5 w-full  h-[500px]  p-6  rounded-14 ">
           <div className=" w-[90%] scrollbar-hide overflow-x-scroll  flex gap-5 items-center p-2">
