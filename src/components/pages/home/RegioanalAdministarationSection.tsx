@@ -12,7 +12,7 @@ const RegioanalAdministaration = () => {
     queryKey: ['current-organization'],
     queryFn: () => getCurrentOrganization(),
   });
-  const { t } = useLocaleContext();
+  const { t, lang } = useLocaleContext();
 
   if (isLoading) return null;
 
@@ -62,11 +62,15 @@ const RegioanalAdministaration = () => {
           <div className="flex flex-col gap-3 text-md">
             <span>
               <b>{t('regional_administration.leader')}:</b>{' '}
-              {data.data.info?.leader || '-'}
+              {data.data.info?.leader[
+                lang as keyof typeof data.data.info.leader
+              ] || '-'}
             </span>
             <span>
               <b>{t('regional_administration.position')}:</b>{' '}
-              {data.data.info?.leader_position || '-'}
+              {data.data.info?.leader_position[
+                lang as keyof typeof data.data.info.leader_position
+              ] || '-'}
             </span>
             <span>
               <b>{t('regional_administration.phone')}:</b>{' '}
@@ -74,7 +78,9 @@ const RegioanalAdministaration = () => {
             </span>
             <span>
               <b>{t('regional_administration.reception_time')}:</b>{' '}
-              {data.data.info?.reception_time || '-'}
+              {data.data.info?.reception_time[
+                lang as keyof typeof data.data.info.reception_time
+              ] || '-'}
             </span>
             <span>
               <b>{t('regional_administration.email')}:</b>{' '}

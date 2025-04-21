@@ -10,10 +10,22 @@ export interface IOrganization {
     youtube: string | null;
   };
   info: {
-    leader: string | null;
-    leader_position: string | null;
+    leader: {
+      uz: string | null;
+      en: string | null;
+      ru: string | null;
+    };
+    leader_position: {
+      uz: string | null;
+      en: string | null;
+      ru: string | null;
+    };
     phone: string | null;
-    reception_time: string | null;
+    reception_time: {
+      uz: string | null;
+      en: string | null;
+      ru: string | null;
+    };
     email: string | null;
   };
   title: {

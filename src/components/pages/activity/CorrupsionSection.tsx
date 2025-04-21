@@ -17,7 +17,7 @@ import { IDocument } from '@/utils/interfaces/documents.interface';
 import { getDocuments } from '@/requests/documents.requests';
 import { useLocaleContext } from '@/contexts/locale.context';
 export const Corruptions = () => {
-  const { t } = useLocaleContext();
+  const { t, lang } = useLocaleContext();
   const [activeTab, setActiveTab] = useState<string | undefined>(undefined);
 
   const { data } = useQuery<AxiosResponse<IDocumentCategory>, Error>({
@@ -54,7 +54,7 @@ export const Corruptions = () => {
                 key={category._id}
                 onClick={() => setActiveTab(category._id)}
               >
-                {category.name}
+                {category.name[lang as keyof typeof category.name]}
               </Button>
             ))}
           </div>
@@ -62,8 +62,12 @@ export const Corruptions = () => {
           {documents.data?.data.documents.length ? (
             <>
               {documents.data?.data.documents.map((item, index) => (
-                <div className="flex flex-col gap-5 w-full" key={index}>
-                  <List key={item._id} title={item.name} fileUrl={item.file} />
+                <div className="flex flex-col gap-5 w-full mb-5" key={index}>
+                  <List
+                    key={item._id}
+                    title={item.name[lang as keyof typeof item.name]}
+                    fileUrl={item.file}
+                  />
                 </div>
               ))}
             </>
